@@ -40,4 +40,4 @@ jobs:
         poetry run isort --check-only .
     - name: mypy
       run: |
-        poetry mypy --namespace-packages --install-types --non-interactive .
+        poetry run mypy --namespace-packages --install-types --non-interactive .
