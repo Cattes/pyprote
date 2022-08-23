@@ -1,4 +1,4 @@
-# pyprote: A Python package for creating Templates for python projects
+# {package_name}: {package_description}
 
 # Installation - development
 
@@ -21,7 +21,7 @@ poetry run pytest
 # CLI app
 
 ```shell
-pyprote --help
+{package_name} --help
 ```
 
 # Formatting
@@ -37,11 +37,11 @@ poetry run mypy .
 
 Update (calendar) version with [bumpver](https://github.com/mbarkhau/bumpver):
 
-```shell
+```
 poetry run bumpver update --dry --patch
 ```
 `--dry` just shows how the version WOULD change.
-```shell
+```
 poetry run bumpver update --patch
 ```
 
@@ -56,7 +56,6 @@ poetry build
 
 The built package is now located in the dist/ folder.
 
-
 ## Publishing your package in PyPi
 
 Publishing is done automatically using GitHub actions.
@@ -68,5 +67,5 @@ Tagged Commit creates real pypi release.
 ## Installation from PyPi
 
 ```shell
-pip install pyprote
+pip install {package_name}
 ```
