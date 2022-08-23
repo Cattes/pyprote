@@ -131,3 +131,6 @@ dmypy.json
 # ide files
 .idea/
 .vscode/
+
+# package test output
+pyprote_output_dir/

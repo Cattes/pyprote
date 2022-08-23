@@ -13,7 +13,7 @@ def main():
     """Main example."""
     logging.info("Running {package_name} on the command line: ")
     funone_res = funone(1)
-    logging.info(f"This is f1(): {funone_res}")
+    logging.info(f"This is f1(): LEFT_CURLY_BRACKETfunone_resRIGHT_CURLY_BRACKET")
 
 
 if __name__ == "__main__":

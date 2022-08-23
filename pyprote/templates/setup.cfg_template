@@ -30,4 +30,11 @@ per-file-ignores =
     hooks/*:W,E,S,D
     # allow assert in tests
     tests/*:S101
+exclude =
+    .git,
+    __pycache__,
+    docs/source/conf.py,
+    old,
+    build,
+    dist
 inline-quotes = "

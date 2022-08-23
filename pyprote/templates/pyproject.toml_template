@@ -20,7 +20,7 @@ license = "LICENSE"
 readme = "README.md"
 
 packages = [
-    { include = "{package_name}", from = "." }
+    LEFT_CURLY_BRACKET include = "{package_name}", from = "." RIGHT_CURLY_BRACKET
 ]
 
 homepage = "{package_link}"
@@ -41,9 +41,8 @@ classifiers = [
 [tool.poetry.build]
 generate-setup-file = true
 
-# if cli then add this section here
-# [tool.poetry.scripts]
-# package_name = "{package_name}.__main__:main"
+[tool.poetry.scripts]
+package_name = "{package_name}.__main__:main"
 
 # Requirements
 [tool.poetry.dependencies]
@@ -62,21 +61,20 @@ pytest = "7.1.2"
 
 ##############################################################################
 
-
 [tool.bumpver]
 current_version = "{package_version}"
 version_pattern = "YYYY.0M.PATCH"
-commit_message = "bump version {old_version} -> {new_version}"
+commit_message = "bump version LEFT_CURLY_BRACKETold_versionRIGHT_CURLY_BRACKET -> LEFT_CURLY_BRACKETnew_versionRIGHT_CURLY_BRACKET"
 commit = false
 tag = false
 push = false
 
 [tool.bumpver.file_patterns]
 "pyproject.toml" = [
-    'version = "{version}"',
+    'version = "LEFT_CURLY_BRACKETversionRIGHT_CURLY_BRACKET"',
 ]
 "{package_name}/__init__.py" = [
-    '__version__ = "{version}"',
+    '__version__ = "LEFT_CURLY_BRACKETversionRIGHT_CURLY_BRACKET"',
 ]
 
 [tool.flakehell]
