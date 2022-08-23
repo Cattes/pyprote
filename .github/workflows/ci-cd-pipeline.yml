@@ -1,0 +1,43 @@
+
+name: Pytest
+
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+
+jobs:
+  job:
+    name: My job
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [ "3.8", "3.9"]
+        platform: [ubuntu-latest]
+    runs-on: ${{ matrix.platform }}
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 -
+        poetry install
+    - name: Test with pytest
+      run: |
+        poetry run pytest -v
+    - name: flake8
+      run: |
+        poetry run flake8 .
+    - name: black
+      run: |
+        poetry run black --line-length 120 --check .
+    - name: isort
+      run: |
+        poetry run isort --check-only .
+    - name: mypy
+      run: |
+        poetry mypy --namespace-packages --install-types --non-interactive .
