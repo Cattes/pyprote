@@ -1,5 +1,37 @@
 # pyprote: A Python package for creating Templates for python projects
 
+## Installation from PyPi
+
+```shell
+pip install pyprote
+```
+For **test**-PyPi dev version:
+
+```shell
+pip install -i https://test.pypi.org/simple/ pyprote
+```
+
+# Usage
+
+## Create a new project
+
+Get default template:
+```shell
+pyprote
+```
+
+Fill template arguments:
+```shell
+pyprote --package_name my_cool_package_name \
+        --package_version 0.1.0 \
+        --package_description 'My cool package description' \
+        --package_author_name 'John Doe' \
+        --package_author_email john@doe \
+        --package_link https://cool.package \
+        --out_dir pyprote_output_dir
+```
+
+
 # Installation - development
 
 Create a virtual environment.
@@ -64,9 +96,3 @@ Publishing is done automatically using GitHub actions.
 Commit to master creates test-pypi release.
 
 Tagged Commit creates real pypi release.
-
-## Installation from PyPi
-
-```shell
-pip install pyprote
-```

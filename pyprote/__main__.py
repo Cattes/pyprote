@@ -3,7 +3,11 @@ import argparse
 import logging
 from logging.config import dictConfig
 
-from pyprote.cli_argument_defaults import format_dict_defaults, out_dir_default
+from pyprote.cli_argument_defaults import (
+    example_call,
+    format_dict_defaults,
+    out_dir_default,
+)
 from pyprote.logging_config.logger_config import get_logger_config
 from pyprote.pyprote import fill_templates
 
@@ -14,12 +18,19 @@ def main():
     """Entry point to the cli commands."""
     parser = argparse.ArgumentParser(description="Pyprote - Python Package Template Generator")
 
+    # add example_call to help page of the cli
+    parser.add_argument("-e", "--example", action="store_true", help=f"Example call: {example_call}")
+
+    # add cli arguments
     fill_arg_parser(parser)
 
     # add out_dir argument to the parser
     parser.add_argument("--out_dir", default=out_dir_default, help="Output directory")
 
     args = parser.parse_args()
+    if args.example:
+        logging.info(example_call)
+        return 0
 
     format_dict_input = {
         "package_name": args.package_name,

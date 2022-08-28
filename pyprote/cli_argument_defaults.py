@@ -9,3 +9,8 @@ format_dict_defaults = {
 }
 
 out_dir_default = "pyprote_output_dir"
+
+example_call = "pyprote "
+for argument_name, default_val in format_dict_defaults.items():
+    example_call = f"{example_call} --{argument_name} '{default_val}'"
+example_call = f"{example_call} --out_dir '{out_dir_default}'"
