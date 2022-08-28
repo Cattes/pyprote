@@ -1,3 +1,3 @@
 """PYthon PROject TEmplates."""
 
-__version__ = "2020.08.0"
+__version__ = "2022.08.1"
