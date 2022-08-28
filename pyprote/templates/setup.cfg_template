@@ -22,7 +22,7 @@ show-violation-links = True
 ignore =  D401,   # ignore imperative mood check in docstring
         WPS323,   # allow % in string for datetime formatting
         WPS305,   # allow f-strings
-; See https://wemake-python-stylegui.de/en/latest/pages/usage/violations/index.html for all error codes
+; See https://wemake-python-styleguide.readthedocs.io/en/latest/pages/usage/violations/index.html for all error codes
 per-file-ignores =
     # allow __version__ in app init.py
     {package_name}/__init__.py: WPS412,WPS410

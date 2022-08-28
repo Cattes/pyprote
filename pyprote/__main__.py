@@ -3,23 +3,44 @@ import argparse
 import logging
 from logging.config import dictConfig
 
+from pyprote.cli_argument_defaults import format_dict_defaults, out_dir_default
 from pyprote.logging_config.logger_config import get_logger_config
-from pyprote.pyprote import funone
+from pyprote.pyprote import fill_templates
 
 dictConfig(get_logger_config())
 
 
 def main():
-    """Main example."""
+    """Entry point to the cli commands."""
+    parser = argparse.ArgumentParser(description="Pyprote - Python Package Template Generator")
+
+    fill_arg_parser(parser)
+
+    # add out_dir argument to the parser
+    parser.add_argument("--out_dir", default=out_dir_default, help="Output directory")
+
+    args = parser.parse_args()
+
+    format_dict_input = {
+        "package_name": args.package_name,
+        "package_version": args.package_version,
+        "package_description": args.package_description,
+        "package_author_name": args.package_author_name,
+        "package_author_email": args.package_author_email,
+        "package_link": args.package_link,
+    }
+    logging.info(format_dict_input)
     logging.info("Running pyprote on the command line: ")
-    funone_res = funone(1)
-    logging.info(f"This is f1(): {funone_res}")
+    fill_templates(format_dict_input, args.out_dir)
+
+
+def fill_arg_parser(parser):
+    """Fill the argparse with the cli arguments."""
+    for argument_name, default_val in format_dict_defaults.items():
+        cli_command = f"--{argument_name}"
+        cli_command_help = f"{argument_name} value"
+        parser.add_argument(cli_command, default=default_val, help=cli_command_help)
 
 
 if __name__ == "__main__":
-    # add argparse to the main function to handle cli input
-    parser = argparse.ArgumentParser(description="Pyprote")
-    parser.add_argument("-v", "--verbose", action="store_true", help="Increase output verbosity")
-    args = parser.parse_args()
-
     main()

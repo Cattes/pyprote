@@ -5,10 +5,7 @@ import os
 from pathlib import Path
 from typing import Optional
 
-
-def funone(inputone: int) -> int:
-    """Sample function."""
-    return inputone**2
+from pyprote.cli_argument_defaults import format_dict_defaults, out_dir_default
 
 
 def fill_templates(
@@ -22,16 +19,9 @@ def fill_templates(
         out_dir (Path): Output directory.
     """
     if format_dict is None:
-        format_dict = {
-            "package_name": "my_cool_package_name",
-            "package_version": "0.1.0",
-            "package_description": "My cool package description",
-            "package_author_name": "John Doe",
-            "package_author_email": "john@doe",
-            "package_link": "https://cool.package",
-        }
+        format_dict = format_dict_defaults
     if out_dir is None:
-        out_dir = "pyprote_output_dir"
+        out_dir = out_dir_default
 
     os.makedirs(out_dir, exist_ok=True)
     for template in (Path(__file__).parent / "templates").rglob("*_template"):
@@ -76,7 +66,7 @@ def format_file(template: Path, output_path: Path, format_dict: dict) -> str:
         str: Formatted file.
     """
     file_content = template.read_text()
-    # json files have so many { and } that the template would become unreadeable by replacing them
+    # json files have so many { and } that the template would become unreadable by replacing them
     # with LEFT_CURLY_BRACKET and RIGHT_CURLY_BRACKET
     if output_path.suffix == ".json":
         return file_content
