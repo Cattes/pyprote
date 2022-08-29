@@ -4,6 +4,11 @@
 
 Create a virtual environment.
 
+## Pipenv:
+```shell
+pipenv install
+```
+
 ## Poetry:
 ```shell
 poetry install
@@ -12,6 +17,10 @@ poetry install
 # Testing
 
 Running the tests requires to run the following command in the root folder (of course in the virtual environment):
+
+```shell
+pipenv run pytest
+```
 
 ```shell
 poetry run pytest
@@ -27,6 +36,13 @@ poetry run pytest
 # Formatting
 
 ```shell
+pipenv run black . && \
+pipenv run isort . && \
+pipenv run flake8 . && \
+pipenv run mypy .
+```
+
+```shell
 poetry run black . && \
 poetry run isort . && \
 poetry run flake8 . && \
@@ -36,6 +52,14 @@ poetry run mypy .
 ## Versioning
 
 Update (calendar) version with [bumpver](https://github.com/mbarkhau/bumpver):
+
+```
+pipenv run bumpver update --dry --patch
+```
+`--dry` just shows how the version WOULD change.
+```
+pipenv run bumpver update --patch
+```
 
 ```
 poetry run bumpver update --dry --patch
