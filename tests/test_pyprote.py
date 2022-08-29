@@ -31,7 +31,7 @@ def get_expected_file_creations() -> List[str]:
     """Get the expected file creation messages."""
     package_name = format_dict_defaults["package_name"]
     package_files = {
-        "root_dir_files": ["pyproject.toml", "README.md", "setup.cfg", "pytest.ini", ".gitignore"],
+        "root_dir_files": ["pyproject.toml", "README.md", "setup.cfg", "pytest.ini", ".gitignore", "Pipfile"],
         "test_dir_files": ["__init__.py", "conftest.py", f"test_{package_name}.py"],
         "package_dir_files": ["__main__.py", "__init__.py", f"{package_name}.py"],
         "logging_config_dir_files": ["logger_config.json", "logger_config.py"],
