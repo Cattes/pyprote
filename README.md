@@ -15,12 +15,15 @@ pip install -i https://test.pypi.org/simple/ pyprote
 
 ## Create a new project
 
-Get default template:
+### Get default template:
 ```shell
 pyprote
 ```
 
-Fill template arguments:
+You will have to replace all instances of `PY_PRO_TE_FILL_ME_IN` with your own project name, email etc..
+
+
+### Fill the template cli arguments:
 ```shell
 pyprote --package_name my_cool_package_name \
         --package_version 0.1.0 \
