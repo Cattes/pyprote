@@ -6,7 +6,7 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry]
 name = "pyprote"
 
-version = "2022.08.3"
+version = "2022.08.4"
 
 description = "A tool for creating python packages."
 authors = [
@@ -63,7 +63,7 @@ pytest = "7.1.2"
 
 
 [tool.bumpver]
-current_version = "2022.08.3"
+current_version = "2022.08.4"
 version_pattern = "YYYY.0M.PATCH"
 commit_message = "bump version {old_version} -> {new_version}"
 commit = false
