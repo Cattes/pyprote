@@ -1,5 +1,5 @@
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core>=1.1.0"]
 build-backend = "poetry.core.masonry.api"
 
 
@@ -46,7 +46,7 @@ pyprote = "pyprote.__main__:main"
 
 # Requirements
 [tool.poetry.dependencies]
-python = ">=3.10.0,<3.11"
+python = ">=3.7.13,<3.11"
 
 
 [tool.poetry.dev-dependencies]
