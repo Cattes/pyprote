@@ -108,9 +108,9 @@ exclude = '''
 
 
 [tool.cibuildwheel]
-build = "*"
-skip = ""
-test-skip = ""
+build = "*"  # build for all platforms
+skip = ["cp36-*", "pp*"] # skip Python 3.6 and PyPy
+test-skip = "" # don't skip any tests
 
 archs = ["auto"]
 build-frontend = "pip"
@@ -123,9 +123,9 @@ before-all = ""
 before-build = ""
 repair-wheel-command = ""
 
-test-command = ""
+test-command = "pytest {project}/tests"
 before-test = ""
-test-requires = []
+test-requires = ["pytest"]
 test-extras = []
 
 container-engine = "docker"
