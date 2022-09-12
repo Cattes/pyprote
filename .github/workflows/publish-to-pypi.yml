@@ -14,14 +14,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Install dependencies
-        run: |
-          curl -sSL https://install.python-poetry.org | python3 -
-          poetry install
-      - name: Test with pytest
-        run: |
-          poetry run pytest -v
-
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.9.0
 
