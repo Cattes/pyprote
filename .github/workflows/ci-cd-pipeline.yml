@@ -1,5 +1,5 @@
 
-name: Pytest
+name: CI/CD Pipeline
 
 on:
   workflow_dispatch:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   job:
-    name: My job
+    name: Run CI/CD pipeline
     strategy:
       fail-fast: false
       matrix:
@@ -29,16 +29,21 @@ jobs:
         poetry install
     - name: Test with pytest
       run: |
+        export PATH="/Users/runner/.local/bin:$PATH"
         poetry run pytest -v
     - name: flake8
       run: |
+        export PATH="/Users/runner/.local/bin:$PATH"
         poetry run flake8 .
     - name: black
       run: |
+        export PATH="/Users/runner/.local/bin:$PATH"
         poetry run black --line-length 120 --check .
     - name: isort
       run: |
+        export PATH="/Users/runner/.local/bin:$PATH"
         poetry run isort --check-only .
     - name: mypy
       run: |
+        export PATH="/Users/runner/.local/bin:$PATH"
         poetry run mypy --namespace-packages --install-types --non-interactive .
