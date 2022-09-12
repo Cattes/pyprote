@@ -20,6 +20,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           path: ./wheelhouse/*.whl
+          config-file: "{package}/pyproject.toml"
 
   build_sdist:
     name: Build source distribution
@@ -33,6 +34,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           path: dist/*.tar.gz
+          config-file: "{package}/pyproject.toml"
 
   upload_test_pypi:
     needs: [build_wheels, build_sdist]
@@ -42,12 +44,14 @@ jobs:
         with:
           name: artifact
           path: dist
+          config-file: "{package}/pyproject.toml"
 
       - uses: pypa/gh-action-pypi-publish@v1.5.0
         with:
           user: __token__
           password: ${{ secrets.TEST_PYPI_API_TOKEN }}
           repository_url: https://test.pypi.org/legacy/
+          config-file: "{package}/pyproject.toml"
 
   upload_pypi:
     needs: [build_wheels, build_sdist]
@@ -61,8 +65,10 @@ jobs:
           # if `name: artifact` is omitted, the action will create extra parent dir
           name: artifact
           path: dist
+          config-file: "{package}/pyproject.toml"
 
       - uses: pypa/gh-action-pypi-publish@v1.5.0
         with:
           user: __token__
           password: ${{ secrets.PYPI_API_TOKEN }}
+          config-file: "{package}/pyproject.toml"
