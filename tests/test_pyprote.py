@@ -1,11 +1,9 @@
 """Tests for the pyprote module."""
 import subprocess  # noqa: S404 # acknowledge security warning
 from pathlib import Path
-from typing import List, Literal
+from typing import List
 
 from pyprote.cli_argument_defaults import format_dict_defaults, out_dir_default
-
-returned_dirs = Literal["root", "package", "tests", "logging_config"]
 
 
 def test_pyprote_cli(cleanup_dir):
@@ -47,13 +45,14 @@ def get_expected_file_creations() -> List[str]:
 
 def fill_expected_file_creations(
     dir_files: List[str],
-    dir_name: Literal["root", "package", "tests", "logging_config"],
+    dir_name: str,
 ) -> List[str]:
     """Fill the expected file creation messages.
 
     Args:
         dir_files (List[str]): List of files that are expected to be created.
-        dir_name (Literal["root", "package", "tests", "logging_config"]): Name of the directory.
+        dir_name (str): Name of the directory. Currently, supports ["root", "package", "tests", "logging_config"]
+
 
     Returns:
         List[str]: List of expected file creation messages.
@@ -65,11 +64,11 @@ def fill_expected_file_creations(
     return res
 
 
-def get_dir_path(dir_name: returned_dirs) -> Path:
+def get_dir_path(dir_name: str) -> Path:
     """Get the path to the directory where the files are expected to be created.
 
     Args:
-        dir_name (returned_dirs): Name of the directory.
+        dir_name (str): Name of the directory. Currently, supports ["root", "package", "tests", "logging_config"]
 
     Returns:
         Path: Path to the directory.
