@@ -117,7 +117,7 @@ build-frontend = "pip"
 dependency-versions = "pinned"
 environment = {}
 environment-pass = []
-build-verbosity = ""
+build-verbosity = 3
 
 before-all = ""
 before-build = ""
