@@ -5,22 +5,21 @@
 ```shell
 pip install pyprote
 ```
-For **test**-PyPi dev version:
-
-```shell
-pip install -i https://test.pypi.org/simple/ pyprote
-```
 
 # Usage
 
+You can create a project template by changing into the directory you want the template to be
+created in. Existing files will **not** be overwritten.
+
 ## Create a new project
 
-### Get default template:
+### Use default template:
+
+You will have to replace all instances of `PY_PRO_TE_FILL_ME_IN` with your own project name, email etc..
+
 ```shell
 pyprote
 ```
-
-You will have to replace all instances of `PY_PRO_TE_FILL_ME_IN` with your own project name, email etc..
 
 
 ### Fill the template cli arguments:
@@ -34,8 +33,13 @@ pyprote --package_name my_cool_package_name \
         --out_dir pyprote_output_dir
 ```
 
+### CLI app
 
-# Installation - development
+```shell
+pyprote --help
+```
+
+# Installation - local development
 
 Create a virtual environment.
 
@@ -50,13 +54,6 @@ Running the tests requires to run the following command in the root folder (of c
 
 ```shell
 poetry run pytest
-```
-
-
-# CLI app
-
-```shell
-pyprote --help
 ```
 
 # Formatting
