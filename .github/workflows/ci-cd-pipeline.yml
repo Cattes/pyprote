@@ -1,5 +1,5 @@
 
-name: CI/CD Pipeline
+name: 🍞 CI/CD Pipeline
 
 on:
   workflow_dispatch:
@@ -27,6 +27,8 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install Poetry
       uses: snok/install-poetry@v1
+      run: |
+        poetry install
     - name: Test with pytest
       run: |
         poetry run pytest -v
