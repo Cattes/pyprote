@@ -25,7 +25,9 @@ jobs:
     - name: Install dependencies
       run: |
         curl -sSL https://install.python-poetry.org | python3 -
-        export PATH="/Users/runner/.local/bin:$PATH"
+        if [ "${{ matrix.platform }}" = "macos-latest" ]; then
+                    export PATH="/Users/runner/.local/bin:$PATH"
+        fi
         poetry install
     - name: Test with pytest
       run: |
