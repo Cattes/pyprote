@@ -1,5 +1,5 @@
 
-name: 🍞 CI/CD Pipeline
+name: CICD Pipeline 🍞
 
 on:
   workflow_dispatch:
@@ -11,7 +11,7 @@ jobs:
     defaults:
       run:
         shell: bash
-    name: Run CI/CD pipeline
+    name: Run CICD pipeline
     strategy:
       fail-fast: false
       matrix:
