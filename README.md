@@ -1,5 +1,11 @@
 # pyprote: A Python package for creating Templates for python projects
 
+
+[![PyPI version](https://badge.fury.io/py/pyprote.svg)](https://badge.fury.io/py/pyprote)
+[![PyPI - Python Version](https://img.shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9%20%7C%203.10-blue)](https://img.shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9%20%7C%203.10-blue)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![tests](https://github.com/Cattes/pyprote/actions/workflows/ci-cd-pipeline.yml/badge.svg)](https://github.com/Cattes/pyprote/actions/workflows/ci-cd-pipeline.yml)
+
 ## Installation from PyPi
 
 ```shell

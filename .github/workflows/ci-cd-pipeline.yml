@@ -1,5 +1,5 @@
 
-name: CICD Pipeline 🍞
+name: tests
 
 on:
   workflow_dispatch:
